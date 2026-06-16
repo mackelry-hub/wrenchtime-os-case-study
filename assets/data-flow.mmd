@@ -1,0 +1,36 @@
+flowchart TD
+  Admin["Admin UI"]
+  Auth["Auth"]
+  Workflow["Quote/Schedule Workflows"]
+  Payment["Payments"]
+  Expense["Expense/Banking"]
+  Growth["Growth Intelligence"]
+  Advisory["AI Advisory"]
+  APIs["External APIs"]
+  Postgres["PostgreSQL"]
+
+  Admin --> Auth
+  Auth --> Admin
+
+  Admin --> Workflow
+  Workflow --> Postgres
+  Workflow --> APIs
+
+  Admin --> Payment
+  Payment --> APIs
+  APIs --> Payment
+  Payment --> Postgres
+
+  Admin --> Expense
+  Expense --> APIs
+  Expense --> Postgres
+
+  Admin --> Growth
+  Growth --> APIs
+  Growth --> Postgres
+
+  Admin --> Advisory
+  Advisory --> APIs
+  Advisory --> Postgres
+
+  Postgres --> Admin

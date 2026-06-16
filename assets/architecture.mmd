@@ -1,0 +1,31 @@
+flowchart LR
+  AdminUI["Admin UI\nNext.js, React, TypeScript"]
+  Auth["Auth\nAuth.js + Google login\nAdmin allowlist"]
+  Workflows["Quote/Schedule Workflows"]
+  Payments["Payments\nStripe Checkout + webhooks"]
+  ExpenseBanking["Expense/Banking\nRead-only banking + annotations"]
+  Growth["Growth Intelligence\nAttribution + tracking health"]
+  AI["AI Advisory\nStructured recommendations"]
+  External["External APIs\nStripe, Google, Resend, SMS, Uploads,\nBanking, Ads, OpenAI"]
+  DB["PostgreSQL\nSupabase"]
+
+  AdminUI --> Auth
+  AdminUI --> Workflows
+  AdminUI --> Payments
+  AdminUI --> ExpenseBanking
+  AdminUI --> Growth
+  AdminUI --> AI
+
+  Auth --> DB
+  Workflows --> DB
+  Payments --> DB
+  ExpenseBanking --> DB
+  Growth --> DB
+  AI --> DB
+
+  Auth --> External
+  Workflows --> External
+  Payments --> External
+  ExpenseBanking --> External
+  Growth --> External
+  AI --> External
